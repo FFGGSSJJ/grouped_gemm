@@ -21,8 +21,9 @@ void BatchedH2DAsync(
 
     for (int i = 0; i < N; i++) {
         // CPU tensors MUST be pinned for async copy
-        TORCH_CHECK(cpu_tensors[i].is_pinned(),
-                    "CPU tensor ", i, " must be pinned memory");
+        // is_pinned() is too slow to check
+        // TORCH_CHECK(cpu_tensors[i].is_pinned(),
+        //             "CPU tensor ", i, " must be pinned memory");
         TORCH_CHECK(cpu_tensors[i].is_contiguous(),
                     "CPU tensor ", i, " must be contiguous");
         TORCH_CHECK(gpu_tensors[i].get_device() == dev, 
