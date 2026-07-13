@@ -140,6 +140,7 @@ if not SKIP_CUDA_BUILD:
                 "csrc/sinkhorn.cu",
                 "csrc/permute.cu",
                 "csrc/batched_h2d.cu",
+                "csrc/utils.cu",
             ],
             include_dirs=[f"{cwd}/third_party/cutlass/include/", f"{cwd}/csrc"],
             extra_compile_args={
